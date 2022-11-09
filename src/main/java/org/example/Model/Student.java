@@ -1,8 +1,12 @@
-package org.example;
+package org.example.Model;
 
 import java.util.Arrays;
 
 public class Student extends Person {
+
+    public static final int MAX_COURSES = 5;
+
+    //field
     private int studentId;
     private String[] courses;
 
@@ -19,6 +23,9 @@ public class Student extends Person {
     //methods
     public void registerCourse(String course){
         if( courses == null) courses = new String[0];
+        if(course.length() > MAX_COURSES){
+            throw new IllegalArgumentException(" number of register course should not be greater than  " + MAX_COURSES);
+        }
 
         String[] newArray = Arrays.copyOf(courses, courses.length + 1);
         newArray[ newArray.length - 1] = course;
