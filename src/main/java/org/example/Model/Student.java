@@ -23,7 +23,7 @@ public class Student extends Person {
     //methods
     public void registerCourse(String course){
         if( courses == null) courses = new String[0];
-        if(course.length() > MAX_COURSES){
+        if(courses.length > MAX_COURSES){
             throw new IllegalArgumentException(" number of register course should not be greater than  " + MAX_COURSES);
         }
 
